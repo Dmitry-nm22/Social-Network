@@ -3,17 +3,28 @@ import styles from './MyPosts.module.css';
 import Post from "./Post/Post";
 
 const MyPosts = () => {
-    return  <div className={styles.content}>
+
+    let posts = [
+        {id : 1, message: 'hi, how are you', likesCount: 12},
+        {id : 2, message: 'Its my first post', likesCount: 11}
+    ]
+
+    let postsElements = posts.map(p =><Post message={p.message} likesCount={p.likesCount}/>)
+
+    return <div className={styles.postsBlock}>
+        <h3>My posts</h3>
         <div>
-            My posts
             <div>
-                New post
+                <textarea></textarea>
             </div>
-            <div className={styles.Posts}>
-                <Post message = 'hi, how are you'/>
-                <Post message ='Its my first post'/>
+            <div>
+                <button>add Post</button>
             </div>
         </div>
+        <div className={styles.posts}>
+            {postsElements}
+        </div>
+
     </div>
 
 }
