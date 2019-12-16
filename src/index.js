@@ -4,15 +4,13 @@ import React from 'react'
 import ReactDOM from "react-dom";
 import './index.css'
 import App from "./App";
+import  {Provider} from "./StoreContext";
 
 
-
- let  rerenderEntireTree = (state) =>{
-    ReactDOM.render(<App state={state}
-                         dispatch={store.dispatch.bind(store)}
-                         store={store}
-
-    />, document.getElementById('root'));
+let rerenderEntireTree = (state) => {
+    ReactDOM.render(<Provider value={store}>
+        <App/>
+    </Provider>, document.getElementById('root'));
  };
 
 
