@@ -4,23 +4,13 @@ import React from 'react'
 import ReactDOM from "react-dom";
 import './index.css'
 import App from "./App";
-import  {Provider} from "./StoreContext";
+import {Provider} from "react-redux";
 
 
-let rerenderEntireTree = (state) => {
-    ReactDOM.render(<Provider value={store}>
+ReactDOM.render(
+    <Provider store={store}>
         <App/>
     </Provider>, document.getElementById('root'));
- };
-
-
-
-rerenderEntireTree(store.getState());
-
-store.subscribe(() =>{
-    let state = store.getState()
-    rerenderEntireTree(state)
-});
 
 
 // If you want your app to work offline and load faster, you can change
